@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="uz" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WearShop Premium | Profile</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../../assets/css/theme.css" />
+    <link rel="stylesheet" href="../../assets/css/layout.css" />
+    <link rel="stylesheet" href="../../assets/css/pages/auth.css" />
+  </head>
+  <body class="profile-page">
+    <div class="bg-aurora a3"></div>
+    <header id="siteHeader" class="header"></header>
+
+    <main class="section profile-main">
+      <div class="container">
+        <section class="profile-top">
+          <button id="profileAvatar" class="profile-avatar profile-avatar-plus" type="button" aria-label="Avatar qo'shish">
+            <span>+</span>
+          </button>
+          <div>
+            <h1><i class="fa-solid fa-user"></i> Profil ma'lumotlari</h1>
+            <p id="userMeta" class="muted">-</p>
+          </div>
+        </section>
+
+        <div class="profile-layout">
+          <section class="profile-card">
+            <h3><i class="fa-solid fa-id-card"></i> Asosiy ma'lumotlar</h3>
+            <div class="profile-info-grid">
+              <article class="info-item"><span class="muted">Ism</span><strong id="userName">-</strong></article>
+              <article class="info-item"><span class="muted">Email</span><strong id="userEmail">-</strong></article>
+              <article class="info-item"><span class="muted">Telefon</span><strong id="userPhone">-</strong></article>
+              <article class="info-item"><span class="muted">Shahar</span><strong id="userCity">-</strong></article>
+              <article class="info-item"><span class="muted">Jins</span><strong id="userGender">-</strong></article>
+              <article class="info-item"><span class="muted">Manzil</span><strong id="userAddress">-</strong></article>
+              <article class="info-item"><span class="muted">Ro'yxatdan o'tgan</span><strong id="userCreatedAt">-</strong></article>
+            </div>
+          </section>
+
+          <aside class="profile-card">
+            <h3><i class="fa-solid fa-pen-to-square"></i> Ma'lumotni yangilash</h3>
+            <div class="auth-grid">
+              <input id="editName" type="text" placeholder="Ism" />
+              <input id="editPhone" type="text" placeholder="Telefon" />
+              <input id="editCity" type="text" placeholder="Shahar" />
+              <select id="editGender">
+                <option value="">Jinsni tanlang</option>
+                <option value="Erkak">Erkak</option>
+                <option value="Ayol">Ayol</option>
+              </select>
+              <input id="editAddress" type="text" placeholder="Manzil (ixtiyoriy)" />
+            </div>
+            <div class="auth-actions">
+              <button id="saveProfileBtn" class="btn btn-primary"><i class="fa-solid fa-floppy-disk"></i> Saqlash</button>
+              <button id="logoutBtn" class="btn btn-soft"><i class="fa-solid fa-right-from-bracket"></i> Chiqish</button>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </main>
+
+    <footer id="siteFooter" class="footer"></footer>
+    <div id="toast" class="toast"></div>
+    <script src="../../assets/js/common/config.js"></script>
+    <script src="../../assets/js/common/state.js"></script>
+    <script src="../../assets/js/common/api.js"></script>
+    <script src="../../assets/js/common/ui.js"></script>
+    <script src="../../assets/js/pages/profile.js"></script>
+  </body>
+</html>

@@ -1,29 +1,34 @@
-# WearShop Frontend
+# WearShop Frontend (Multi-page)
 
-Zamonaviy kiyim-kechak do'koni uchun `HTML + CSS + Vanilla JS` frontend loyihasi.
+Ko'p sahifali premium frontend arxitekturasi:
+
+- `index.html` (asosiy sahifa)
+- `pages/shop/index.html`
+- `pages/product/index.html`
+- `pages/wishlist/index.html`
+- `pages/checkout/index.html`
+- `pages/lookbook/index.html`
+- `pages/contact/index.html`
+
+Umumiy stil va JS modullar:
+
+- `assets/css/theme.css`
+- `assets/css/layout.css`
+- `assets/css/pages/*.css`
+- `assets/js/common/*.js`
+- `assets/js/pages/*.js`
 
 ## Ishga tushirish
 
-1. `Frontend` papkaga kiring.
-2. Fayl server bilan oching (masalan VS Code Live Server).
-3. Backend ishlayotgan bo'lishi kerak (`http://localhost:5000`).
+1. `Frontend` papkani Live Server bilan ishga tushiring.
+2. Backend `http://localhost:5000` da ishlasin.
 
-## API manzilini o'zgartirish (deploy uchun)
+## Deploy
 
-`index.html` ichida `app.js` dan oldin quyidagini qo'shing:
+Agar backend domeni o'zgarsa, har bir sahifada common scriptlardan oldin quyidagini qo'shing:
 
 ```html
 <script>
   window.WEARSHOP_API_URL = "https://your-backend-domain.com/api";
 </script>
 ```
-
-## Funksiyalar
-
-- Mahsulotlarni backenddan olish
-- Qidiruv, kategoriya, narx bo'yicha filtr
-- Saralash va pagination
-- Savatga qo'shish, miqdor o'zgartirish, o'chirish
-- Ro'yxatdan o'tish / login (JWT)
-- Buyurtma yuborish
-- Responsive va zamonaviy UI

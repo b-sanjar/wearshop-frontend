@@ -1,0 +1,90 @@
+.product-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.95rem;
+}
+
+.product-gallery {
+  border-radius: var(--radius);
+  border: 1px solid color-mix(in srgb, var(--line) 80%, var(--primary));
+  overflow: hidden;
+  background: color-mix(in srgb, var(--glass) 84%, var(--surface-2));
+}
+
+.product-gallery img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+}
+
+.product-info {
+  border-radius: var(--radius);
+  padding: 1rem;
+  border: 1px solid color-mix(in srgb, var(--line) 80%, var(--primary));
+  background: color-mix(in srgb, var(--glass) 86%, var(--surface-2));
+}
+
+.price-wrap {
+  display: flex;
+  align-items: baseline;
+  gap: 0.62rem;
+}
+
+.price {
+  font-size: 1.38rem;
+  font-weight: 900;
+}
+
+.detail-grid {
+  margin-top: 0.7rem;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.5rem;
+}
+
+.detail-item {
+  border-radius: 11px;
+  border: 1px solid color-mix(in srgb, var(--line) 76%, var(--primary));
+  background: color-mix(in srgb, var(--glass) 84%, var(--surface-2));
+  padding: 0.55rem 0.6rem;
+}
+
+.related-grid {
+  margin-top: 0.8rem;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.72rem;
+}
+
+.mini-card {
+  border: 1px solid color-mix(in srgb, var(--line) 80%, var(--primary));
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--glass) 84%, var(--surface-2));
+  overflow: hidden;
+  transition: var(--transition);
+}
+
+.mini-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-sm);
+}
+
+.mini-card img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+}
+
+.mini-card div {
+  padding: 0.65rem;
+}
+
+@media (max-width: 980px) {
+  .product-grid,
+  .related-grid,
+  .detail-grid {
+    grid-template-columns: 1fr;
+  }
+}

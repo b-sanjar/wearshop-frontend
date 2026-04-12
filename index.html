@@ -1,162 +1,211 @@
 <!doctype html>
-<html lang="uz">
+<html lang="uz" data-theme="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>WearShop | Zamonaviy kiyim-kechak do'koni</title>
+    <title>WearShop Premium | Home</title>
     <meta
       name="description"
-      content="WearShop - zamonaviy, interaktiv va to'liq ishlaydigan kiyim-kechak internet do'koni."
+      content="WearShop Premium - zamonaviy, kreativ, ko'p sahifali fashion commerce platforma."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+    <link rel="stylesheet" href="./assets/css/theme.css" />
+    <link rel="stylesheet" href="./assets/css/layout.css" />
+    <link rel="stylesheet" href="./assets/css/pages/home.css" />
   </head>
   <body>
-    <header class="header">
-      <div class="container nav">
-        <a class="logo" href="#">
-          <span class="logo-dot"></span>
-          WearShop
-        </a>
-        <nav class="nav-links">
-          <a href="#products">Mahsulotlar</a>
-          <a href="#advantages">Afzalliklar</a>
-          <a href="#contact">Bog'lanish</a>
-        </nav>
-        <div class="nav-actions">
-          <button id="loginBtn" class="btn btn-soft">Kirish</button>
-          <button id="cartBtn" class="btn btn-primary">Savat <span id="cartCount">0</span></button>
-        </div>
-      </div>
-    </header>
+    <div class="bg-aurora a1"></div>
+    <div class="bg-aurora a2"></div>
+    <div class="bg-aurora a3"></div>
+
+    <header id="siteHeader" class="header"></header>
 
     <main>
-      <section class="hero">
+      <section class="hero section">
         <div class="container hero-grid">
-          <div>
-            <p class="pill">Yangi kolleksiya 2026</p>
-            <h1>Har kun uchun premium uslub</h1>
-            <p class="hero-text">
-              Erkaklar va ayollar uchun sifatli, zamonaviy hamda qulay kiyimlarni tanlang.
-              WearShop bilan shopping tez, xavfsiz va zavqli.
+          <div class="hero-left">
+            <p class="pill"><i class="fa-solid fa-wand-magic-sparkles"></i> New Era • 2026</p>
+            <h1>Creative Premium Fashion Experience</h1>
+            <p class="muted hero-split-copy">
+              <span class="copy-site">WearShop — premium fashion uchun zamonaviy ko'p sahifali onlayn do'kon.</span>
+              <span class="copy-products">Mahsulotlar: Erkaklar, Ayollar va Unisex kolleksiyalari, 50+ model.</span>
+              Bizning platformamiz bilan siz nafaqat xarid qilasiz, balki haqiqiy moda tajribasini boshdan kechirasiz.
             </p>
             <div class="hero-actions">
-              <a href="#products" class="btn btn-primary">Xaridni boshlash</a>
-              <button id="scrollDealsBtn" class="btn btn-soft">Aksiya mahsulotlari</button>
+              <a class="btn btn-primary" href="./pages/shop/index.html">
+                <i class="fa-solid fa-bag-shopping"></i> Xaridni boshlash
+              </a>
+              <a class="btn btn-soft" href="./pages/lookbook/index.html">
+                <i class="fa-regular fa-images"></i> Lookbook
+              </a>
+              <a class="btn btn-soft" href="./pages/wishlist/index.html">
+                <i class="fa-regular fa-heart"></i> Wishlist
+              </a>
             </div>
+            <div id="heroStats" class="hero-stats"></div>
           </div>
-          <div class="hero-card">
-            <h3>Bugungi aksiya</h3>
-            <p><strong>-20%</strong> Summer Street Collection</p>
-            <p class="muted">Bepul yetkazib berish: 300,000 so'mdan yuqori buyurtmalarga</p>
-          </div>
+          <aside class="hero-right">
+            <div class="live-row">
+              <span class="live-dot"></span>
+              <span id="liveVisitors">0</span> foydalanuvchi online
+            </div>
+            <h3>Premium Wear Shop</h3>
+            <p class="muted">Store Flow</p>
+            <div class="style-stack">
+              <article class="style-card">
+                <span class="style-badge"><i class="fa-solid fa-store"></i> Shop Core</span>
+                <strong>Catalog</strong>
+                <span class="style-mini muted">50+</span>
+              </article>
+              <article class="style-card">
+                <span class="style-badge"><i class="fa-solid fa-heart"></i> Style Save</span>
+                <strong>Wishlist</strong>
+                <span class="style-mini muted">Match</span>
+              </article>
+              <article class="style-card">
+                <span class="style-badge"><i class="fa-solid fa-credit-card"></i> Order Pay</span>
+                <strong>Checkout</strong>
+                <span class="style-mini muted">Fast</span>
+              </article>
+            </div>
+            <div class="hero-highlight">
+              <span class="hero-chip"><i class="fa-solid fa-cubes-stacked"></i> Creative Commerce Experience</span>
+            </div>
+          </aside>
         </div>
       </section>
 
-      <section id="products" class="products-section">
+      <section class="section">
         <div class="container">
-          <div class="section-top">
-            <h2>Mahsulotlar</h2>
-            <p class="muted">Qidiruv, filtr va saralash bilan o'zingizga mos mahsulotni toping.</p>
+          <div class="section-head">
+            <h2>Platform modullari</h2>
+            <p class="muted">Har bir bo'lim alohida UX va kontentga ega</p>
           </div>
-
-          <div class="filters">
-            <input id="searchInput" type="text" placeholder="Mahsulot nomi bo'yicha qidiring..." />
-            <select id="categorySelect"></select>
-            <select id="sortSelect">
-              <option value="featured">Saralash: Tavsiya</option>
-              <option value="price_asc">Narx: arzon -> qimmat</option>
-              <option value="price_desc">Narx: qimmat -> arzon</option>
-              <option value="rating_desc">Reyting: yuqori</option>
-            </select>
-            <input id="minPriceInput" type="number" min="0" placeholder="Min narx" />
-            <input id="maxPriceInput" type="number" min="0" placeholder="Maks narx" />
-            <button id="filterBtn" class="btn btn-primary">Qo'llash</button>
-          </div>
-
-          <div id="statusBar" class="status-bar"></div>
-          <div id="productsGrid" class="products-grid"></div>
-          <div class="pagination-wrap">
-            <button id="prevPageBtn" class="btn btn-soft">Oldingi</button>
-            <span id="pageInfo">1 / 1</span>
-            <button id="nextPageBtn" class="btn btn-soft">Keyingi</button>
+          <div class="feature-grid">
+            <a class="feature-card" href="./pages/shop/index.html">
+              <span class="icon-wrap"><i class="fa-solid fa-store"></i></span>
+              <h3>Shop Experience</h3>
+              <p class="muted">Keng filtrlar, smart sort, list/grid, premium kartalar.</p>
+            </a>
+            <a class="feature-card" href="./pages/lookbook/index.html">
+              <span class="icon-wrap"><i class="fa-solid fa-camera"></i></span>
+              <h3>Lookbook Stories</h3>
+              <p class="muted">Mavsumiy trendlar va stil yo'nalishlari.</p>
+            </a>
+            <a class="feature-card" href="./pages/wishlist/index.html">
+              <span class="icon-wrap"><i class="fa-solid fa-heart-circle-check"></i></span>
+              <h3>Wishlist Plus</h3>
+              <p class="muted">Insights, tezkor add-to-cart va trend monitoring.</p>
+            </a>
+            <a class="feature-card" href="./pages/checkout/index.html">
+              <span class="icon-wrap"><i class="fa-solid fa-credit-card"></i></span>
+              <h3>Smart Checkout</h3>
+              <p class="muted">Promo, shipping, summary va payment options.</p>
+            </a>
           </div>
         </div>
       </section>
 
-      <section id="advantages" class="advantages">
-        <div class="container cards-3">
+      <section class="section">
+        <div class="container cards">
           <article>
-            <h3>Tez yetkazib berish</h3>
-            <p>O'zbekiston bo'ylab ishonchli va tez yetkazib berish xizmati.</p>
+            <span class="icon-wrap"><i class="fa-solid fa-truck-fast"></i></span>
+            <h3>Fast Delivery</h3>
+            <p class="muted">Mamlakat bo'ylab tez yetkazish va buyurtma monitoringi.</p>
           </article>
           <article>
-            <h3>Xavfsiz to'lov</h3>
-            <p>Buyurtmalar himoyalangan API orqali qayta ishlanadi.</p>
+            <span class="icon-wrap"><i class="fa-solid fa-shield-heart"></i></span>
+            <h3>Secure Ecosystem</h3>
+            <p class="muted">JWT auth, API validation va xavfsiz checkout oqimi.</p>
           </article>
           <article>
-            <h3>Qaytarish kafolati</h3>
-            <p>14 kun ichida oson qaytarish imkoniyati mavjud.</p>
+            <span class="icon-wrap"><i class="fa-solid fa-palette"></i></span>
+            <h3>Adaptive Design</h3>
+            <p class="muted">Tema o'zgarishi bilan icon/rang/kontrast avtomatik moslashadi.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container showcase-grid">
+          <article class="showcase-main">
+            <h3><i class="fa-solid fa-stars"></i> Premium Features</h3>
+            <p class="muted">Mukammal shopping jarayoni uchun birlashtirilgan funksiyalar</p>
+            <div class="showcase-list">
+              <div class="showcase-item">
+                <span><i class="fa-solid fa-filter-circle-dollar"></i> Dynamic filtering</span>
+                <strong>Real-time</strong>
+              </div>
+              <div class="showcase-item">
+                <span><i class="fa-solid fa-heart-circle-plus"></i> Wishlist intelligence</span>
+                <strong>Smart</strong>
+              </div>
+              <div class="showcase-item">
+                <span><i class="fa-solid fa-tags"></i> Promo engine</span>
+                <strong>Flexible</strong>
+              </div>
+            </div>
+          </article>
+          <aside class="showcase-side">
+            <h3><i class="fa-solid fa-chart-line"></i> Performance</h3>
+            <p class="muted">Optimized ko'p sahifali arxitektura va modul JS.</p>
+            <p class="muted">Sahifalar: Home, Shop, Product, Wishlist, Checkout, Lookbook, Contact.</p>
+            <a class="btn btn-primary" href="./pages/shop/index.html">
+              <i class="fa-solid fa-arrow-right"></i> Shopga o'tish
+            </a>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="section-head">
+            <h2><i class="fa-solid fa-fire"></i> Trending mahsulotlar</h2>
+            <p class="muted">Eng ko'p ko'rilgan va xarid qilinayotgan premium pozitsiyalar</p>
+          </div>
+          <div id="homeFeaturedGrid" class="home-featured-grid"></div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container trust-grid">
+          <article class="trust-item">
+            <i class="fa-solid fa-shield-check"></i>
+            <div>
+              <strong>100% original mahsulotlar</strong>
+              <p class="muted">Har bir pozitsiya sifat nazoratidan o'tgan</p>
+            </div>
+          </article>
+          <article class="trust-item">
+            <i class="fa-solid fa-credit-card"></i>
+            <div>
+              <strong>Barcha turdagi to'lovlar</strong>
+              <p class="muted">Karta, naqd va bank o'tkazmasi qo'llab-quvvatlanadi</p>
+            </div>
+          </article>
+          <article class="trust-item">
+            <i class="fa-solid fa-arrows-rotate"></i>
+            <div>
+              <strong>14 kun qaytarish kafolati</strong>
+              <p class="muted">Qulay va tez qaytarish jarayoni</p>
+            </div>
           </article>
         </div>
       </section>
     </main>
 
-    <footer id="contact" class="footer">
-      <div class="container footer-grid">
-        <p><strong>WearShop</strong> © 2026. Barcha huquqlar himoyalangan.</p>
-        <p>Tel: +998 90 123 45 67 | Email: support@wearshop.uz</p>
-      </div>
-    </footer>
+    <footer id="siteFooter" class="footer"></footer>
 
-    <aside id="cartDrawer" class="drawer">
-      <div class="drawer-content">
-        <div class="drawer-header">
-          <h3>Savat</h3>
-          <button id="closeCartBtn" class="icon-btn">✕</button>
-        </div>
-        <div id="cartItems" class="cart-items"></div>
-        <div class="drawer-footer">
-          <p>Jami: <strong id="cartTotal">0 so'm</strong></p>
-          <button id="checkoutBtn" class="btn btn-primary full">Buyurtma berish</button>
-        </div>
-      </div>
-    </aside>
-
-    <dialog id="authDialog" class="dialog">
-      <form id="authForm" method="dialog" class="dialog-content">
-        <h3>Kirish / Ro'yxatdan o'tish</h3>
-        <input id="authName" type="text" placeholder="Ism (ro'yxatdan o'tishda)" />
-        <input id="authEmail" type="email" placeholder="Email" required />
-        <input id="authPassword" type="password" placeholder="Parol" required />
-        <div class="dialog-actions">
-          <button id="registerBtn" type="button" class="btn btn-soft">Ro'yxatdan o'tish</button>
-          <button id="loginSubmitBtn" type="button" class="btn btn-primary">Kirish</button>
-          <button type="button" id="closeAuthBtn" class="btn btn-soft">Yopish</button>
-        </div>
-      </form>
-    </dialog>
-
-    <dialog id="checkoutDialog" class="dialog">
-      <form id="checkoutForm" method="dialog" class="dialog-content">
-        <h3>Yetkazib berish ma'lumotlari</h3>
-        <input id="customerName" type="text" placeholder="To'liq ism" required />
-        <input id="customerPhone" type="text" placeholder="Telefon" required />
-        <input id="customerAddress" type="text" placeholder="Manzil" required />
-        <textarea id="customerNote" rows="3" placeholder="Izoh (ixtiyoriy)"></textarea>
-        <div class="dialog-actions">
-          <button type="button" id="confirmOrderBtn" class="btn btn-primary">Tasdiqlash</button>
-          <button type="button" id="closeCheckoutBtn" class="btn btn-soft">Bekor qilish</button>
-        </div>
-      </form>
-    </dialog>
-
-    <div id="toast" class="toast"></div>
-    <script src="./app.js" defer></script>
+    <script src="./assets/js/common/config.js"></script>
+    <script src="./assets/js/common/state.js"></script>
+    <script src="./assets/js/common/api.js"></script>
+    <script src="./assets/js/common/ui.js"></script>
+    <script src="./assets/js/pages/home.js"></script>
   </body>
 </html>
