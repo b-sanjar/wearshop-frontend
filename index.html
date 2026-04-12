@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="uz">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WearShop | Zamonaviy kiyim-kechak do'koni</title>
+    <meta
+      name="description"
+      content="WearShop - zamonaviy, interaktiv va to'liq ishlaydigan kiyim-kechak internet do'koni."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container nav">
+        <a class="logo" href="#">
+          <span class="logo-dot"></span>
+          WearShop
+        </a>
+        <nav class="nav-links">
+          <a href="#products">Mahsulotlar</a>
+          <a href="#advantages">Afzalliklar</a>
+          <a href="#contact">Bog'lanish</a>
+        </nav>
+        <div class="nav-actions">
+          <button id="loginBtn" class="btn btn-soft">Kirish</button>
+          <button id="cartBtn" class="btn btn-primary">Savat <span id="cartCount">0</span></button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container hero-grid">
+          <div>
+            <p class="pill">Yangi kolleksiya 2026</p>
+            <h1>Har kun uchun premium uslub</h1>
+            <p class="hero-text">
+              Erkaklar va ayollar uchun sifatli, zamonaviy hamda qulay kiyimlarni tanlang.
+              WearShop bilan shopping tez, xavfsiz va zavqli.
+            </p>
+            <div class="hero-actions">
+              <a href="#products" class="btn btn-primary">Xaridni boshlash</a>
+              <button id="scrollDealsBtn" class="btn btn-soft">Aksiya mahsulotlari</button>
+            </div>
+          </div>
+          <div class="hero-card">
+            <h3>Bugungi aksiya</h3>
+            <p><strong>-20%</strong> Summer Street Collection</p>
+            <p class="muted">Bepul yetkazib berish: 300,000 so'mdan yuqori buyurtmalarga</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="products" class="products-section">
+        <div class="container">
+          <div class="section-top">
+            <h2>Mahsulotlar</h2>
+            <p class="muted">Qidiruv, filtr va saralash bilan o'zingizga mos mahsulotni toping.</p>
+          </div>
+
+          <div class="filters">
+            <input id="searchInput" type="text" placeholder="Mahsulot nomi bo'yicha qidiring..." />
+            <select id="categorySelect"></select>
+            <select id="sortSelect">
+              <option value="featured">Saralash: Tavsiya</option>
+              <option value="price_asc">Narx: arzon -> qimmat</option>
+              <option value="price_desc">Narx: qimmat -> arzon</option>
+              <option value="rating_desc">Reyting: yuqori</option>
+            </select>
+            <input id="minPriceInput" type="number" min="0" placeholder="Min narx" />
+            <input id="maxPriceInput" type="number" min="0" placeholder="Maks narx" />
+            <button id="filterBtn" class="btn btn-primary">Qo'llash</button>
+          </div>
+
+          <div id="statusBar" class="status-bar"></div>
+          <div id="productsGrid" class="products-grid"></div>
+          <div class="pagination-wrap">
+            <button id="prevPageBtn" class="btn btn-soft">Oldingi</button>
+            <span id="pageInfo">1 / 1</span>
+            <button id="nextPageBtn" class="btn btn-soft">Keyingi</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="advantages" class="advantages">
+        <div class="container cards-3">
+          <article>
+            <h3>Tez yetkazib berish</h3>
+            <p>O'zbekiston bo'ylab ishonchli va tez yetkazib berish xizmati.</p>
+          </article>
+          <article>
+            <h3>Xavfsiz to'lov</h3>
+            <p>Buyurtmalar himoyalangan API orqali qayta ishlanadi.</p>
+          </article>
+          <article>
+            <h3>Qaytarish kafolati</h3>
+            <p>14 kun ichida oson qaytarish imkoniyati mavjud.</p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer id="contact" class="footer">
+      <div class="container footer-grid">
+        <p><strong>WearShop</strong> © 2026. Barcha huquqlar himoyalangan.</p>
+        <p>Tel: +998 90 123 45 67 | Email: support@wearshop.uz</p>
+      </div>
+    </footer>
+
+    <aside id="cartDrawer" class="drawer">
+      <div class="drawer-content">
+        <div class="drawer-header">
+          <h3>Savat</h3>
+          <button id="closeCartBtn" class="icon-btn">✕</button>
+        </div>
+        <div id="cartItems" class="cart-items"></div>
+        <div class="drawer-footer">
+          <p>Jami: <strong id="cartTotal">0 so'm</strong></p>
+          <button id="checkoutBtn" class="btn btn-primary full">Buyurtma berish</button>
+        </div>
+      </div>
+    </aside>
+
+    <dialog id="authDialog" class="dialog">
+      <form id="authForm" method="dialog" class="dialog-content">
+        <h3>Kirish / Ro'yxatdan o'tish</h3>
+        <input id="authName" type="text" placeholder="Ism (ro'yxatdan o'tishda)" />
+        <input id="authEmail" type="email" placeholder="Email" required />
+        <input id="authPassword" type="password" placeholder="Parol" required />
+        <div class="dialog-actions">
+          <button id="registerBtn" type="button" class="btn btn-soft">Ro'yxatdan o'tish</button>
+          <button id="loginSubmitBtn" type="button" class="btn btn-primary">Kirish</button>
+          <button type="button" id="closeAuthBtn" class="btn btn-soft">Yopish</button>
+        </div>
+      </form>
+    </dialog>
+
+    <dialog id="checkoutDialog" class="dialog">
+      <form id="checkoutForm" method="dialog" class="dialog-content">
+        <h3>Yetkazib berish ma'lumotlari</h3>
+        <input id="customerName" type="text" placeholder="To'liq ism" required />
+        <input id="customerPhone" type="text" placeholder="Telefon" required />
+        <input id="customerAddress" type="text" placeholder="Manzil" required />
+        <textarea id="customerNote" rows="3" placeholder="Izoh (ixtiyoriy)"></textarea>
+        <div class="dialog-actions">
+          <button type="button" id="confirmOrderBtn" class="btn btn-primary">Tasdiqlash</button>
+          <button type="button" id="closeCheckoutBtn" class="btn btn-soft">Bekor qilish</button>
+        </div>
+      </form>
+    </dialog>
+
+    <div id="toast" class="toast"></div>
+    <script src="./app.js" defer></script>
+  </body>
+</html>
