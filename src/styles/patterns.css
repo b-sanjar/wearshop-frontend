@@ -1,0 +1,370 @@
+/* ============================================================
+   SECTION COLOUR MAP
+   Each page re-declares --accent, so every button, link, chip,
+   underline and border inside it inherits that section's hue.
+   ============================================================ */
+[data-sec] {
+  --accent: var(--sec-1);
+  --accent-2: var(--sec-2);
+  --accent-soft: color-mix(in srgb, var(--sec-1) 11%, transparent);
+  --accent-ink: #fff;
+  --grad-accent: linear-gradient(135deg, var(--sec-2) 0%, var(--sec-1) 100%);
+  --focus: color-mix(in srgb, var(--sec-1) 32%, transparent);
+  --shadow-glow: 0 14px 34px -14px color-mix(in srgb, var(--sec-1) 55%, transparent);
+}
+
+[data-sec="emerald"]  { --sec-1: var(--h-emerald);  --sec-2: var(--h-teal); }
+[data-sec="teal"]     { --sec-1: var(--h-teal);     --sec-2: var(--h-emerald); }
+[data-sec="sapphire"] { --sec-1: var(--h-sapphire); --sec-2: var(--h-indigo); }
+[data-sec="indigo"]   { --sec-1: var(--h-indigo);   --sec-2: var(--h-violet); }
+[data-sec="violet"]   { --sec-1: var(--h-violet);   --sec-2: var(--h-plum); }
+[data-sec="plum"]     { --sec-1: var(--h-plum);     --sec-2: var(--h-violet); }
+[data-sec="rose"]     { --sec-1: var(--h-rose);     --sec-2: var(--h-plum); }
+[data-sec="crimson"]  { --sec-1: var(--h-crimson);  --sec-2: var(--h-rose); }
+[data-sec="amber"]    { --sec-1: var(--h-amber);    --sec-2: var(--h-gold); }
+[data-sec="gold"]     { --sec-1: var(--h-gold);     --sec-2: var(--h-amber); }
+[data-sec="olive"]    { --sec-1: var(--h-olive);    --sec-2: var(--h-moss); }
+[data-sec="moss"]     { --sec-1: var(--h-moss);     --sec-2: var(--h-olive); }
+
+/* Light theme darkens gold/amber for contrast, so white ink is correct in
+   both themes; dark theme lifts them and needs the espresso ink instead. */
+html[data-theme="dark"] [data-sec="gold"],
+html[data-theme="dark"] [data-sec="amber"] { --accent-ink: #2a2113; }
+
+/* ============================================================
+   BACKGROUND TEXTURES — dots, lines, hatches, graph paper
+   ============================================================ */
+.pat {
+  position: relative;
+  isolation: isolate;
+}
+.pat > * { position: relative; z-index: 1; }
+.pat::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Dot grid */
+.pat--dots::before {
+  background-image: radial-gradient(
+    color-mix(in srgb, var(--accent) 42%, transparent) 1.4px,
+    transparent 1.5px
+  );
+  background-size: 22px 22px;
+  opacity: 0.5;
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 10%, transparent 75%);
+  -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 10%, transparent 75%);
+}
+
+/* Larger, sparser dots for wide bands */
+.pat--dots-lg::before {
+  background-image: radial-gradient(
+    color-mix(in srgb, var(--accent) 34%, transparent) 2px,
+    transparent 2.2px
+  );
+  background-size: 46px 46px;
+  opacity: 0.45;
+}
+
+/* Diagonal hatch */
+.pat--hatch::before {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    color-mix(in srgb, var(--accent) 20%, transparent) 0 1px,
+    transparent 1px 11px
+  );
+  opacity: 0.5;
+  mask-image: linear-gradient(180deg, #000, transparent 85%);
+  -webkit-mask-image: linear-gradient(180deg, #000, transparent 85%);
+}
+
+/* Graph paper */
+.pat--graph::before {
+  background-image:
+    linear-gradient(to right, color-mix(in srgb, var(--accent) 16%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in srgb, var(--accent) 16%, transparent) 1px, transparent 1px);
+  background-size: 34px 34px;
+  opacity: 0.6;
+  mask-image: radial-gradient(ellipse 75% 70% at 50% 45%, #000 5%, transparent 78%);
+  -webkit-mask-image: radial-gradient(ellipse 75% 70% at 50% 45%, #000 5%, transparent 78%);
+}
+
+/* Horizontal rules, like ledger paper */
+.pat--lines::before {
+  background-image: repeating-linear-gradient(
+    to bottom,
+    color-mix(in srgb, var(--accent) 15%, transparent) 0 1px,
+    transparent 1px 15px
+  );
+  opacity: 0.55;
+  mask-image: linear-gradient(180deg, transparent, #000 25%, #000 75%, transparent);
+  -webkit-mask-image: linear-gradient(180deg, transparent, #000 25%, #000 75%, transparent);
+}
+
+/* Scattered multi-hue confetti — the liveliest option */
+.pat--confetti::before {
+  background-image:
+    radial-gradient(circle at 12% 22%, var(--h-rose) 0 3px, transparent 3.5px),
+    radial-gradient(circle at 34% 68%, var(--h-amber) 0 2.5px, transparent 3px),
+    radial-gradient(circle at 58% 18%, var(--h-teal) 0 3px, transparent 3.5px),
+    radial-gradient(circle at 76% 74%, var(--h-violet) 0 2.5px, transparent 3px),
+    radial-gradient(circle at 90% 34%, var(--h-emerald) 0 3px, transparent 3.5px),
+    radial-gradient(circle at 22% 88%, var(--h-sapphire) 0 2px, transparent 2.5px),
+    radial-gradient(circle at 66% 44%, var(--h-gold) 0 2px, transparent 2.5px);
+  background-size: 340px 260px;
+  opacity: 0.4;
+}
+
+/* ============================================================
+   DECORATIVE COLOUR BLOBS — drop inside any .pat container
+   ============================================================ */
+.blob {
+  position: absolute;
+  z-index: 0;
+  border-radius: 50%;
+  filter: blur(70px);
+  pointer-events: none;
+  opacity: 0.5;
+}
+html[data-theme="dark"] .blob { opacity: 0.36; mix-blend-mode: screen; }
+.blob--rose { background: var(--h-rose); }
+.blob--amber { background: var(--h-amber); }
+.blob--teal { background: var(--h-teal); }
+.blob--violet { background: var(--h-violet); }
+.blob--emerald { background: var(--h-emerald); }
+.blob--sapphire { background: var(--h-sapphire); }
+.blob--a { width: 30vw; height: 30vw; min-width: 220px; min-height: 220px; top: -8%; left: -6%; }
+.blob--b { width: 26vw; height: 26vw; min-width: 200px; min-height: 200px; bottom: -12%; right: -4%; }
+.blob--c { width: 20vw; height: 20vw; min-width: 170px; min-height: 170px; top: 40%; right: 22%; }
+
+/* ============================================================
+   DIVIDERS
+   ============================================================ */
+.div-dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding-block: clamp(1.5rem, 3vw, 2.5rem);
+}
+.div-dots span {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+}
+.div-dots span:nth-child(1) { background: var(--h-rose); }
+.div-dots span:nth-child(2) { background: var(--h-amber); }
+.div-dots span:nth-child(3) { background: var(--h-emerald); }
+.div-dots span:nth-child(4) { background: var(--h-sapphire); }
+.div-dots span:nth-child(5) { background: var(--h-violet); }
+
+.div-rule {
+  height: 1px;
+  border: 0;
+  margin: 0;
+  background: repeating-linear-gradient(
+    to right,
+    var(--line-2) 0 6px,
+    transparent 6px 12px
+  );
+}
+
+/* ============================================================
+   BUTTON COLOUR VARIANTS — so CTAs are not all one colour
+   ============================================================ */
+.btn--rose { --btn-bg: linear-gradient(135deg, var(--h-plum), var(--h-rose)); --btn-ink: #fff; }
+.btn--rose::before { background: linear-gradient(135deg, var(--h-rose), var(--h-crimson)); }
+
+.btn--sapphire { --btn-bg: linear-gradient(135deg, var(--h-indigo), var(--h-sapphire)); --btn-ink: #fff; }
+.btn--sapphire::before { background: linear-gradient(135deg, var(--h-sapphire), var(--h-teal)); }
+
+.btn--violet { --btn-bg: linear-gradient(135deg, var(--h-violet), var(--h-plum)); --btn-ink: #fff; }
+.btn--violet::before { background: linear-gradient(135deg, var(--h-plum), var(--h-rose)); }
+
+.btn--amber { --btn-bg: linear-gradient(135deg, var(--h-gold), var(--h-amber)); --btn-ink: #fff; }
+html[data-theme="dark"] .btn--amber { --btn-ink: #2a2113; }
+.btn--amber::before { background: linear-gradient(135deg, var(--h-amber), var(--h-crimson)); }
+.btn--amber:hover { color: #fff; }
+
+.btn--crimson { --btn-bg: linear-gradient(135deg, var(--h-crimson), var(--h-rose)); --btn-ink: #fff; }
+.btn--crimson::before { background: linear-gradient(135deg, var(--h-rose), var(--h-plum)); }
+
+.btn--teal { --btn-bg: linear-gradient(135deg, var(--h-teal), var(--h-emerald)); --btn-ink: #fff; }
+.btn--teal::before { background: linear-gradient(135deg, var(--h-emerald), var(--h-olive)); }
+
+/* ============================================================
+   STATUS SYSTEM — one colour per meaning, used site-wide
+   ============================================================ */
+.tag--ok,
+.tag--success { background: var(--s-success); color: #fff; }
+.tag--warn { background: var(--s-warning); color: #fff; }
+html[data-theme="dark"] .tag--warn { color: #2a2113; }
+.tag--info { background: var(--s-info); color: #fff; }
+.tag--shipped { background: var(--s-shipped); color: #fff; }
+.tag--danger { background: var(--s-danger); color: #fff; }
+.tag--sale { background: var(--s-sale); color: #fff; }
+.tag--premium { background: var(--s-premium); color: #fff; }
+.tag--muted { background: var(--bg-3); color: var(--muted); }
+
+.dot-status {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  display: inline-block;
+}
+.dot-status--ok { background: var(--s-success); box-shadow: 0 0 0 3px color-mix(in srgb, var(--s-success) 22%, transparent); }
+.dot-status--warn { background: var(--s-warning); box-shadow: 0 0 0 3px color-mix(in srgb, var(--s-warning) 22%, transparent); }
+.dot-status--info { background: var(--s-info); box-shadow: 0 0 0 3px color-mix(in srgb, var(--s-info) 22%, transparent); }
+.dot-status--danger { background: var(--s-danger); box-shadow: 0 0 0 3px color-mix(in srgb, var(--s-danger) 22%, transparent); }
+
+/* ============================================================
+   TEXTURES APPLIED TO REAL SECTIONS
+   Attached here rather than in markup so no component changes.
+   ============================================================ */
+.ticker,
+.cats,
+.vals,
+.stband,
+.ftr,
+.phero,
+.sale__hero,
+.ab__numbers,
+.atel,
+.lbstrip {
+  position: relative;
+  isolation: isolate;
+}
+.ticker > *,
+.cats > *,
+.vals > *,
+.stband > *,
+.ftr > *,
+.phero > *,
+.sale__hero > *,
+.ab__numbers > *,
+.atel > *,
+.lbstrip > * {
+  position: relative;
+  z-index: 1;
+}
+
+.ticker::after,
+.cats::after,
+.vals::after,
+.stband::after,
+.ftr::after,
+.phero::after,
+.sale__hero::after,
+.ab__numbers::after,
+.atel::after,
+.lbstrip::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Ledger rules behind the marquee */
+.ticker::after {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    color-mix(in srgb, var(--accent) 22%, transparent) 0 1px,
+    transparent 1px 9px
+  );
+  opacity: 0.4;
+}
+
+/* Multi-hue confetti behind the category tiles */
+.cats::after {
+  background-image:
+    radial-gradient(circle at 8% 18%, var(--h-rose) 0 3px, transparent 3.5px),
+    radial-gradient(circle at 28% 72%, var(--h-amber) 0 2.5px, transparent 3px),
+    radial-gradient(circle at 52% 12%, var(--h-teal) 0 3px, transparent 3.5px),
+    radial-gradient(circle at 74% 66%, var(--h-violet) 0 2.5px, transparent 3px),
+    radial-gradient(circle at 92% 28%, var(--h-emerald) 0 3px, transparent 3.5px),
+    radial-gradient(circle at 18% 92%, var(--h-sapphire) 0 2px, transparent 2.5px);
+  background-size: 420px 320px;
+  opacity: 0.32;
+  mask-image: radial-gradient(ellipse 80% 70% at 50% 40%, #000 5%, transparent 78%);
+  -webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 40%, #000 5%, transparent 78%);
+}
+
+/* Graph paper behind the values grid */
+.vals::after,
+.ab__numbers::after {
+  background-image:
+    linear-gradient(to right, color-mix(in srgb, var(--accent) 15%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in srgb, var(--accent) 15%, transparent) 1px, transparent 1px);
+  background-size: 38px 38px;
+  opacity: 0.6;
+  mask-image: radial-gradient(ellipse 78% 72% at 50% 45%, #000 5%, transparent 80%);
+  -webkit-mask-image: radial-gradient(ellipse 78% 72% at 50% 45%, #000 5%, transparent 80%);
+}
+
+/* Dot grid behind stores band, page heroes, atelier and lookbook strip */
+.stband::after,
+.phero::after,
+.atel::after,
+.lbstrip::after {
+  background-image: radial-gradient(
+    color-mix(in srgb, var(--accent) 40%, transparent) 1.4px,
+    transparent 1.5px
+  );
+  background-size: 24px 24px;
+  opacity: 0.4;
+  mask-image: radial-gradient(ellipse 75% 65% at 50% 40%, #000 8%, transparent 76%);
+  -webkit-mask-image: radial-gradient(ellipse 75% 65% at 50% 40%, #000 8%, transparent 76%);
+}
+
+/* Footer gets a wide sparse dot field */
+.ftr::after {
+  background-image: radial-gradient(
+    color-mix(in srgb, var(--h-gold) 45%, transparent) 1.6px,
+    transparent 1.8px
+  );
+  background-size: 40px 40px;
+  opacity: 0.3;
+  mask-image: linear-gradient(180deg, #000, transparent 70%);
+  -webkit-mask-image: linear-gradient(180deg, #000, transparent 70%);
+}
+
+/* Sale campaign gets loud confetti */
+.sale__hero::after {
+  background-image:
+    radial-gradient(circle at 10% 24%, var(--h-crimson) 0 4px, transparent 4.5px),
+    radial-gradient(circle at 32% 78%, var(--h-amber) 0 3px, transparent 3.5px),
+    radial-gradient(circle at 56% 16%, var(--h-rose) 0 3.5px, transparent 4px),
+    radial-gradient(circle at 80% 62%, var(--h-plum) 0 3px, transparent 3.5px),
+    radial-gradient(circle at 94% 22%, var(--h-gold) 0 2.5px, transparent 3px);
+  background-size: 380px 300px;
+  opacity: 0.34;
+}
+
+/* Panels get a whisper of dots in the corner */
+.panel::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 45%;
+  height: 60%;
+  z-index: 0;
+  pointer-events: none;
+  background-image: radial-gradient(
+    color-mix(in srgb, var(--accent) 34%, transparent) 1.2px,
+    transparent 1.3px
+  );
+  background-size: 18px 18px;
+  opacity: 0.35;
+  mask-image: radial-gradient(ellipse at 100% 0%, #000, transparent 70%);
+  -webkit-mask-image: radial-gradient(ellipse at 100% 0%, #000, transparent 70%);
+}
+.panel > * { position: relative; z-index: 1; }
+
+/* Section heads get a coloured tick before the eyebrow */
+.sechead .eyebrow::before { background: var(--grad-accent); }

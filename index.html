@@ -1,211 +1,33 @@
 <!doctype html>
-<html lang="uz" data-theme="dark">
+<html lang="uz" data-theme="light">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>WearShop Premium | Home</title>
+    <title>WEARSHOP — Premium Fashion House</title>
     <meta
       name="description"
-      content="WearShop Premium - zamonaviy, kreativ, ko'p sahifali fashion commerce platforma."
+      content="WEARSHOP — premium kiyim-kechak uyi. Erkaklar, ayollar va unisex kolleksiyalari, lookbook, jurnal va butun O'zbekiston bo'ylab filiallar."
     />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,600;0,6..96,700;1,6..96,400;1,6..96,500&family=Manrope:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
-    <link rel="stylesheet" href="./assets/css/theme.css" />
-    <link rel="stylesheet" href="./assets/css/layout.css" />
-    <link rel="stylesheet" href="./assets/css/pages/home.css" />
+    <script>
+      (function () {
+        try {
+          var t = localStorage.getItem("ws2-theme");
+          if (t === "dark" || t === "light") document.documentElement.dataset.theme = t;
+          else if (window.matchMedia("(prefers-color-scheme: dark)").matches)
+            document.documentElement.dataset.theme = "dark";
+        } catch (e) {}
+      })();
+    </script>
   </head>
   <body>
-    <div class="bg-aurora a1"></div>
-    <div class="bg-aurora a2"></div>
-    <div class="bg-aurora a3"></div>
-
-    <header id="siteHeader" class="header"></header>
-
-    <main>
-      <section class="hero section">
-        <div class="container hero-grid">
-          <div class="hero-left">
-            <p class="pill"><i class="fa-solid fa-wand-magic-sparkles"></i> New Era • 2026</p>
-            <h1>Creative Premium Fashion Experience</h1>
-            <p class="muted hero-split-copy">
-              <span class="copy-site">WearShop — premium fashion uchun zamonaviy ko'p sahifali onlayn do'kon.</span>
-              <span class="copy-products">Mahsulotlar: Erkaklar, Ayollar va Unisex kolleksiyalari, 50+ model.</span>
-              Bizning platformamiz bilan siz nafaqat xarid qilasiz, balki haqiqiy moda tajribasini boshdan kechirasiz.
-            </p>
-            <div class="hero-actions">
-              <a class="btn btn-primary" href="./pages/shop/index.html">
-                <i class="fa-solid fa-bag-shopping"></i> Xaridni boshlash
-              </a>
-              <a class="btn btn-soft" href="./pages/lookbook/index.html">
-                <i class="fa-regular fa-images"></i> Lookbook
-              </a>
-              <a class="btn btn-soft" href="./pages/wishlist/index.html">
-                <i class="fa-regular fa-heart"></i> Wishlist
-              </a>
-            </div>
-            <div id="heroStats" class="hero-stats"></div>
-          </div>
-          <aside class="hero-right">
-            <div class="live-row">
-              <span class="live-dot"></span>
-              <span id="liveVisitors">0</span> foydalanuvchi online
-            </div>
-            <h3>Premium Wear Shop</h3>
-            <p class="muted">Store Flow</p>
-            <div class="style-stack">
-              <article class="style-card">
-                <span class="style-badge"><i class="fa-solid fa-store"></i> Shop Core</span>
-                <strong>Catalog</strong>
-                <span class="style-mini muted">50+</span>
-              </article>
-              <article class="style-card">
-                <span class="style-badge"><i class="fa-solid fa-heart"></i> Style Save</span>
-                <strong>Wishlist</strong>
-                <span class="style-mini muted">Match</span>
-              </article>
-              <article class="style-card">
-                <span class="style-badge"><i class="fa-solid fa-credit-card"></i> Order Pay</span>
-                <strong>Checkout</strong>
-                <span class="style-mini muted">Fast</span>
-              </article>
-            </div>
-            <div class="hero-highlight">
-              <span class="hero-chip"><i class="fa-solid fa-cubes-stacked"></i> Creative Commerce Experience</span>
-            </div>
-          </aside>
-        </div>
-      </section>
-
-      <section class="section">
-        <div class="container">
-          <div class="section-head">
-            <h2>Platform modullari</h2>
-            <p class="muted">Har bir bo'lim alohida UX va kontentga ega</p>
-          </div>
-          <div class="feature-grid">
-            <a class="feature-card" href="./pages/shop/index.html">
-              <span class="icon-wrap"><i class="fa-solid fa-store"></i></span>
-              <h3>Shop Experience</h3>
-              <p class="muted">Keng filtrlar, smart sort, list/grid, premium kartalar.</p>
-            </a>
-            <a class="feature-card" href="./pages/lookbook/index.html">
-              <span class="icon-wrap"><i class="fa-solid fa-camera"></i></span>
-              <h3>Lookbook Stories</h3>
-              <p class="muted">Mavsumiy trendlar va stil yo'nalishlari.</p>
-            </a>
-            <a class="feature-card" href="./pages/wishlist/index.html">
-              <span class="icon-wrap"><i class="fa-solid fa-heart-circle-check"></i></span>
-              <h3>Wishlist Plus</h3>
-              <p class="muted">Insights, tezkor add-to-cart va trend monitoring.</p>
-            </a>
-            <a class="feature-card" href="./pages/checkout/index.html">
-              <span class="icon-wrap"><i class="fa-solid fa-credit-card"></i></span>
-              <h3>Smart Checkout</h3>
-              <p class="muted">Promo, shipping, summary va payment options.</p>
-            </a>
-          </div>
-        </div>
-      </section>
-
-      <section class="section">
-        <div class="container cards">
-          <article>
-            <span class="icon-wrap"><i class="fa-solid fa-truck-fast"></i></span>
-            <h3>Fast Delivery</h3>
-            <p class="muted">Mamlakat bo'ylab tez yetkazish va buyurtma monitoringi.</p>
-          </article>
-          <article>
-            <span class="icon-wrap"><i class="fa-solid fa-shield-heart"></i></span>
-            <h3>Secure Ecosystem</h3>
-            <p class="muted">JWT auth, API validation va xavfsiz checkout oqimi.</p>
-          </article>
-          <article>
-            <span class="icon-wrap"><i class="fa-solid fa-palette"></i></span>
-            <h3>Adaptive Design</h3>
-            <p class="muted">Tema o'zgarishi bilan icon/rang/kontrast avtomatik moslashadi.</p>
-          </article>
-        </div>
-      </section>
-
-      <section class="section">
-        <div class="container showcase-grid">
-          <article class="showcase-main">
-            <h3><i class="fa-solid fa-stars"></i> Premium Features</h3>
-            <p class="muted">Mukammal shopping jarayoni uchun birlashtirilgan funksiyalar</p>
-            <div class="showcase-list">
-              <div class="showcase-item">
-                <span><i class="fa-solid fa-filter-circle-dollar"></i> Dynamic filtering</span>
-                <strong>Real-time</strong>
-              </div>
-              <div class="showcase-item">
-                <span><i class="fa-solid fa-heart-circle-plus"></i> Wishlist intelligence</span>
-                <strong>Smart</strong>
-              </div>
-              <div class="showcase-item">
-                <span><i class="fa-solid fa-tags"></i> Promo engine</span>
-                <strong>Flexible</strong>
-              </div>
-            </div>
-          </article>
-          <aside class="showcase-side">
-            <h3><i class="fa-solid fa-chart-line"></i> Performance</h3>
-            <p class="muted">Optimized ko'p sahifali arxitektura va modul JS.</p>
-            <p class="muted">Sahifalar: Home, Shop, Product, Wishlist, Checkout, Lookbook, Contact.</p>
-            <a class="btn btn-primary" href="./pages/shop/index.html">
-              <i class="fa-solid fa-arrow-right"></i> Shopga o'tish
-            </a>
-          </aside>
-        </div>
-      </section>
-
-      <section class="section">
-        <div class="container">
-          <div class="section-head">
-            <h2><i class="fa-solid fa-fire"></i> Trending mahsulotlar</h2>
-            <p class="muted">Eng ko'p ko'rilgan va xarid qilinayotgan premium pozitsiyalar</p>
-          </div>
-          <div id="homeFeaturedGrid" class="home-featured-grid"></div>
-        </div>
-      </section>
-
-      <section class="section">
-        <div class="container trust-grid">
-          <article class="trust-item">
-            <i class="fa-solid fa-shield-check"></i>
-            <div>
-              <strong>100% original mahsulotlar</strong>
-              <p class="muted">Har bir pozitsiya sifat nazoratidan o'tgan</p>
-            </div>
-          </article>
-          <article class="trust-item">
-            <i class="fa-solid fa-credit-card"></i>
-            <div>
-              <strong>Barcha turdagi to'lovlar</strong>
-              <p class="muted">Karta, naqd va bank o'tkazmasi qo'llab-quvvatlanadi</p>
-            </div>
-          </article>
-          <article class="trust-item">
-            <i class="fa-solid fa-arrows-rotate"></i>
-            <div>
-              <strong>14 kun qaytarish kafolati</strong>
-              <p class="muted">Qulay va tez qaytarish jarayoni</p>
-            </div>
-          </article>
-        </div>
-      </section>
-    </main>
-
-    <footer id="siteFooter" class="footer"></footer>
-
-    <script src="./assets/js/common/config.js"></script>
-    <script src="./assets/js/common/state.js"></script>
-    <script src="./assets/js/common/api.js"></script>
-    <script src="./assets/js/common/ui.js"></script>
-    <script src="./assets/js/pages/home.js"></script>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

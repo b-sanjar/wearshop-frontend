@@ -1,0 +1,297 @@
+/* ================================================================
+   COLOUR CONTRACT — read this before adding any colour anywhere.
+
+   1. SECTION ACCENT (--accent)
+      Identity only: primary CTAs, active nav, focus rings, counts,
+      selected chips, link underlines. Changes per page via
+      [data-sec] in patterns.css. NEVER used to signal state.
+
+   2. STATE COLOURS — each has exactly one meaning, site-wide:
+      --s-success  green   confirmed, delivered, in stock, promo applied
+      --s-warning  amber   pending, low stock, needs attention
+      --s-info     blue    neutral notice, paid, informational toast
+      --s-shipped  violet  order dispatched
+      --s-danger   red     errors, validation failures, destructive
+                           actions, cancelled orders. NOTHING ELSE.
+      --s-sale     rose    price reductions only
+      --s-premium  plum    premium tier marker
+
+   3. HEADER COUNT BADGES (--s-notify)
+      The cart and wishlist counters in the top bar use notification
+      red, following the convention shoppers already know. This is the
+      only place a count is red; in-page counts (filter chips, tab
+      counters) still use the section accent.
+
+   4. Decorative tokens (--c-*, --h-*) may be used for texture,
+      gradients and illustration, never to carry meaning.
+   ================================================================ */
+
+:root {
+  --font-display: "Bodoni Moda", "Didot", "Times New Roman", serif;
+  --font-body: "Manrope", system-ui, -apple-system, sans-serif;
+
+  --container: min(1440px, calc(100% - clamp(2rem, 6vw, 6rem)));
+  --container-wide: min(1680px, calc(100% - clamp(1.5rem, 4vw, 4rem)));
+
+  --r-xs: 4px;
+  --r-sm: 10px;
+  --r-md: 16px;
+  --r-lg: 24px;
+  --r-xl: 36px;
+  --r-pill: 999px;
+
+  /* ============================================================
+     TYPE SCALE — every font-size in the app resolves to one of
+     these steps. Nothing uses a raw rem value.
+     ============================================================ */
+  --fs-3xs: 0.625rem;   /* 10px — micro caps, badge counts       */
+  --fs-2xs: 0.6875rem;  /* 11px — eyebrows, uppercase labels     */
+  --fs-xs: 0.75rem;     /* 12px — meta, captions, table heads    */
+  --fs-sm: 0.8125rem;   /* 13px — secondary text, small buttons  */
+  --fs-base: 0.875rem;  /* 14px — dense UI text                  */
+  --fs-md: 0.9375rem;   /* 15px — body copy, inputs              */
+  --fs-lg: 1.0625rem;   /* 17px — leads, card titles             */
+  --fs-xl: 1.1875rem;   /* 19px — sub-headings                   */
+  --fs-2xl: 1.375rem;   /* 22px — small headings                 */
+  --fs-3xl: 1.75rem;    /* 28px — section headings, numerals     */
+  --fs-4xl: 2.5rem;     /* 40px — statistic figures              */
+  --fs-5xl: 3.25rem;    /* 52px — hero figures                   */
+
+  /* Display sizes stay fluid — they are the only clamped steps */
+  --fs-display-sm: clamp(1.75rem, 3.6vw, 2.75rem);
+  --fs-display-md: clamp(2rem, 4.4vw, 3.5rem);
+  --fs-display-lg: clamp(2.5rem, 6vw, 5rem);
+  --fs-display-xl: clamp(3rem, 8.5vw, 8rem);
+
+  /* Line heights and tracking, paired to the scale */
+  --lh-tight: 1.12;
+  --lh-snug: 1.35;
+  --lh-normal: 1.6;
+  --lh-relaxed: 1.78;
+  --tr-caps: 0.18em;
+  --tr-wide: 0.06em;
+  --tr-tight: -0.01em;
+
+  /* Weights — only four are used anywhere */
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-bold: 700;
+  --fw-black: 800;
+
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --dur: 0.4s;
+
+  --z-header: 100;
+  --z-drawer: 200;
+  --z-modal: 300;
+  --z-toast: 400;
+
+  --mx: 50%;
+  --my: 30%;
+}
+
+/* ============================================================
+   LIGHT — parchment ground, deep emerald accent, antique gold.
+   Neutrals stay warm so the green never reads clinical.
+   ============================================================ */
+html[data-theme="light"] {
+  color-scheme: light;
+
+  --bg: #f5efe4;
+  --bg-2: #ece5d6;
+  --bg-3: #e2dac6;
+  --surface: #fffcf6;
+  --surface-2: #f7f1e5;
+
+  --ink: #1c1913;
+  --ink-2: #39362b;
+  --muted: #746d5c;
+
+  --line: #d5cdb8;
+  --line-2: #bfb59b;
+  --line-strong: #a49879;
+
+  --accent: #1c6a50;
+  --accent-2: #14503c;
+  --accent-soft: rgba(28, 106, 80, 0.1);
+  --accent-ink: #fbf8f1;
+
+  /* Emerald core, gold and moss as companions */
+  --c-emerald: #1c6a50;
+  --c-jade: #2f8a6b;
+  --c-gold: #b8945a;
+  --c-brass: #96793f;
+  --c-moss: #4f6b44;
+  --c-olive: #6b7f4a;
+  --c-wine: #7a2e3e;
+  --c-cocoa: #4a3b2c;
+
+  --olive: var(--c-olive);
+  --gold: var(--c-gold);
+
+  /* ---- Hue library: one jewel tone per section of the site ---- */
+  --h-emerald: #1c6a50;
+  --h-teal: #0f6b6b;
+  --h-sapphire: #1f4f96;
+  --h-indigo: #3d3a96;
+  --h-violet: #6a3596;
+  --h-plum: #8c3576;
+  --h-rose: #b03259;
+  --h-crimson: #b52f2b;
+  /* Amber, gold and olive are darkened here so they clear 4.5:1 on cream */
+  --h-amber: #8d5a0d;
+  --h-gold: #806329;
+  --h-olive: #57683b;
+  --h-moss: #4f6b44;
+
+  /* ---- Semantic status colours ---- */
+  --s-success: var(--h-emerald);
+  --s-danger: var(--h-crimson);
+  --s-warning: var(--h-amber);
+  --s-info: var(--h-sapphire);
+  --s-shipped: var(--h-violet);
+  --s-sale: var(--h-rose);
+  --s-premium: var(--h-plum);
+  --s-notify: #d3342c;
+
+  --danger: var(--h-crimson);
+  --ok: var(--h-emerald);
+
+  --glass: rgba(255, 252, 246, 0.76);
+  --glass-strong: rgba(255, 252, 246, 0.95);
+
+  /* Elevation stays a warm bark tone — never neutral grey */
+  --shadow-sm: 0 1px 2px rgba(52, 45, 32, 0.06), 0 4px 12px -6px rgba(52, 45, 32, 0.16);
+  --shadow-md: 0 2px 6px rgba(52, 45, 32, 0.07), 0 16px 34px -16px rgba(52, 45, 32, 0.26);
+  --shadow-lg: 0 4px 10px rgba(52, 45, 32, 0.08), 0 36px 70px -28px rgba(52, 45, 32, 0.34);
+  --shadow-card: 0 1px 2px rgba(52, 45, 32, 0.05), 0 10px 24px -14px rgba(52, 45, 32, 0.22);
+  --shadow-card-hover: 0 3px 8px rgba(52, 45, 32, 0.09), 0 26px 50px -20px rgba(20, 80, 60, 0.3);
+  --shadow-glow: 0 14px 34px -14px rgba(28, 106, 80, 0.42);
+  --inset-hi: inset 0 1px 0 rgba(255, 255, 255, 0.75);
+
+  --focus: rgba(28, 106, 80, 0.28);
+  --grain-opacity: 0.045;
+
+  --orb-1: rgba(184, 148, 90, 0.34);
+  --orb-2: rgba(47, 138, 107, 0.22);
+  --orb-3: rgba(107, 127, 74, 0.24);
+  --orb-4: rgba(28, 106, 80, 0.18);
+  --mesh-alpha: 0.8;
+  --spotlight: rgba(255, 244, 216, 0.42);
+}
+
+/* ============================================================
+   DARK — espresso night, verdigris accent, candle gold.
+   ============================================================ */
+html[data-theme="dark"] {
+  color-scheme: dark;
+
+  --bg: #12110d;
+  --bg-2: #191712;
+  --bg-3: #221f18;
+  --surface: #1d1b14;
+  --surface-2: #27231a;
+
+  --ink: #f2eee2;
+  --ink-2: #d6d0bd;
+  --muted: #9d9682;
+
+  --line: #383326;
+  --line-2: #4e4734;
+  --line-strong: #695f45;
+
+  --accent: #55b28d;
+  --accent-2: #74cba6;
+  --accent-soft: rgba(85, 178, 141, 0.14);
+  --accent-ink: #06251a;
+
+  --c-emerald: #55b28d;
+  --c-jade: #74cba6;
+  --c-gold: #d0ae70;
+  --c-brass: #b3945a;
+  --c-moss: #86a173;
+  --c-olive: #9aa870;
+  --c-wine: #bf6e80;
+  --c-cocoa: #8a7554;
+
+  --olive: var(--c-olive);
+  --gold: var(--c-gold);
+
+  /* ---- Hue library, lifted for the espresso ground ---- */
+  --h-emerald: #55b28d;
+  --h-teal: #3fa8a8;
+  --h-sapphire: #6d9ce0;
+  --h-indigo: #8785e6;
+  --h-violet: #ab7ce0;
+  --h-plum: #d179b4;
+  --h-rose: #e8748f;
+  --h-crimson: #e46b5c;
+  --h-amber: #e6a94e;
+  --h-gold: #d0ae70;
+  --h-olive: #9aa870;
+  --h-moss: #86a173;
+
+  --s-success: var(--h-emerald);
+  --s-danger: var(--h-crimson);
+  --s-warning: var(--h-amber);
+  --s-info: var(--h-sapphire);
+  --s-shipped: var(--h-violet);
+  --s-sale: var(--h-rose);
+  --s-premium: var(--h-plum);
+  --s-notify: #e8483c;
+
+  --danger: var(--h-crimson);
+  --ok: var(--h-emerald);
+
+  --glass: rgba(29, 27, 20, 0.7);
+  --glass-strong: rgba(18, 17, 13, 0.93);
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4), 0 4px 12px -6px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 2px 6px rgba(0, 0, 0, 0.45), 0 16px 34px -16px rgba(0, 0, 0, 0.6);
+  --shadow-lg: 0 4px 10px rgba(0, 0, 0, 0.5), 0 36px 70px -28px rgba(0, 0, 0, 0.7);
+  --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.4), 0 10px 24px -14px rgba(0, 0, 0, 0.55);
+  --shadow-card-hover: 0 3px 8px rgba(0, 0, 0, 0.5), 0 26px 50px -20px rgba(0, 0, 0, 0.7);
+  --shadow-glow: 0 14px 34px -14px rgba(85, 178, 141, 0.38);
+  --inset-hi: inset 0 1px 0 rgba(255, 245, 225, 0.07);
+
+  --focus: rgba(85, 178, 141, 0.35);
+  --grain-opacity: 0.06;
+
+  --orb-1: rgba(208, 174, 112, 0.2);
+  --orb-2: rgba(85, 178, 141, 0.18);
+  --orb-3: rgba(154, 168, 112, 0.16);
+  --orb-4: rgba(116, 203, 166, 0.16);
+  --mesh-alpha: 1;
+  --spotlight: rgba(255, 236, 198, 0.09);
+}
+
+/* ============================================================
+   Gradients — gold → moss → emerald. Wine is held back for
+   discounts and destructive actions only.
+   ============================================================ */
+:root {
+  /* Default accent gradient — every page section overrides this in patterns.css */
+  --grad-accent: linear-gradient(135deg, var(--c-jade) 0%, var(--c-emerald) 100%);
+  --grad-forest: linear-gradient(118deg, var(--c-jade) 0%, var(--c-emerald) 55%, var(--c-cocoa) 130%);
+  --grad-gold: linear-gradient(120deg, var(--c-brass) 0%, var(--c-gold) 50%, var(--c-brass) 100%);
+  --grad-olive: linear-gradient(130deg, var(--c-olive) 0%, var(--c-emerald) 100%);
+  --grad-moss: linear-gradient(135deg, var(--c-moss) 0%, var(--c-emerald) 100%);
+  --grad-wine: linear-gradient(130deg, var(--c-wine) 0%, #58202c 100%);
+  --grad-ramp: linear-gradient(
+    100deg,
+    var(--c-gold) 0%,
+    var(--c-brass) 22%,
+    var(--c-olive) 46%,
+    var(--c-moss) 70%,
+    var(--c-emerald) 100%
+  );
+  --shine: linear-gradient(
+    100deg,
+    transparent 28%,
+    rgba(255, 250, 236, 0.34) 48%,
+    rgba(255, 250, 236, 0.06) 58%,
+    transparent 74%
+  );
+}

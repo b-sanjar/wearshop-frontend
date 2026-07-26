@@ -1,0 +1,172 @@
+/* ================================================================
+   MOTION LAYER
+   Interaction feedback and entrance choreography. Everything here
+   is decorative and collapses under prefers-reduced-motion.
+   ================================================================ */
+
+/* ---------- Route transition: each page fades up on arrival ---------- */
+.route-shell {
+  animation: route-in 0.55s var(--ease-out) both;
+}
+@keyframes route-in {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: none; }
+}
+
+/* ---------- Grid entrance: children arrive in sequence ---------- */
+.pgrid > *,
+.jgrid > *,
+.cats__grid > *,
+.vals__grid > * {
+  animation: rise-in 0.7s var(--ease-out) both;
+  animation-delay: calc(var(--stagger, 55ms) * var(--n, 0));
+}
+.pgrid > *:nth-child(1) { --n: 0; }
+.pgrid > *:nth-child(2) { --n: 1; }
+.pgrid > *:nth-child(3) { --n: 2; }
+.pgrid > *:nth-child(4) { --n: 3; }
+.pgrid > *:nth-child(5) { --n: 4; }
+.pgrid > *:nth-child(6) { --n: 5; }
+.pgrid > *:nth-child(7) { --n: 6; }
+.pgrid > *:nth-child(8) { --n: 7; }
+.pgrid > *:nth-child(n + 9) { --n: 8; }
+.jgrid > *:nth-child(2) { --n: 1; }
+.jgrid > *:nth-child(3) { --n: 2; }
+.cats__grid > *:nth-child(2) { --n: 1; }
+.cats__grid > *:nth-child(3) { --n: 2; }
+.cats__grid > *:nth-child(4) { --n: 3; }
+
+@keyframes rise-in {
+  from { opacity: 0; transform: translateY(26px) scale(0.985); }
+  to { opacity: 1; transform: none; }
+}
+
+/* ---------- Buttons: press ripple + icon nudge ---------- */
+.btn,
+.icon-btn {
+  --ripple: 0;
+  position: relative;
+}
+.btn:active { transform: translateY(1px) scale(0.985); }
+.icon-btn:active { transform: scale(0.92); }
+
+.btn svg,
+.icon-btn svg {
+  transition: transform 0.4s var(--ease-spring);
+}
+.btn:hover svg { transform: translateX(3px); }
+.icon-btn:hover svg { transform: scale(1.12); }
+
+/* Add-to-cart buttons nudge the bag upward instead of sideways */
+.pcard__add:hover svg,
+.pdp__addbtn:hover svg {
+  transform: translateY(-3px) rotate(-8deg);
+}
+
+/* ---------- Cards: cursor-following glare ---------- */
+.pcard__media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  opacity: 0;
+  background: radial-gradient(
+    260px circle at var(--gx, 50%) var(--gy, 50%),
+    rgba(255, 250, 236, 0.28),
+    transparent 62%
+  );
+  transition: opacity 0.4s var(--ease-out);
+}
+.pcard:hover .pcard__media::after { opacity: 1; }
+
+/* ---------- Links: underline sweeps in from the left ---------- */
+.mega__link,
+.ftr__link,
+.faq__clinks a {
+  background-image: linear-gradient(var(--accent), var(--accent));
+  background-size: 0 1px;
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  transition: background-size 0.45s var(--ease-out), color 0.3s, transform 0.35s var(--ease-out);
+}
+.mega__link:hover,
+.ftr__link:hover,
+.faq__clinks a:hover { background-size: 100% 1px; }
+
+/* ---------- Chips and swatches ---------- */
+.chip { transition: all 0.32s var(--ease-out); }
+.chip:active { transform: scale(0.94); }
+.swatch--btn:hover { transform: scale(1.14); }
+.swatch--btn:active { transform: scale(0.96); }
+
+/* ---------- Inputs: focus lifts the field ---------- */
+input,
+select,
+textarea {
+  transition: border-color 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out),
+    transform 0.3s var(--ease-out), background 0.3s;
+}
+input:focus,
+textarea:focus { transform: translateY(-1px); }
+
+/* ---------- Tags: soft entrance so status changes register ---------- */
+.tag { animation: tag-in 0.4s var(--ease-spring) both; }
+@keyframes tag-in {
+  from { opacity: 0; transform: scale(0.86); }
+  to { opacity: 1; transform: none; }
+}
+
+/* ---------- Section headings: rule draws itself ---------- */
+.sechead__title::after,
+.srch__stitle::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 2px;
+  margin-top: 0.7rem;
+  border-radius: 2px;
+  background: var(--grad-accent);
+  transition: width 0.9s var(--ease-expo) 0.2s;
+}
+.sechead__title.is-in::after { width: 68px; }
+
+/* ---------- Images: gentle zoom-out on load ---------- */
+.img-frame img { will-change: transform; }
+
+/* ---------- Drawer and modal content stagger ---------- */
+.cartd__item { animation: slide-in-right 0.45s var(--ease-out) both; }
+@keyframes slide-in-right {
+  from { opacity: 0; transform: translateX(18px); }
+  to { opacity: 1; transform: none; }
+}
+
+/* ---------- Accordion chevron ---------- */
+.accordion__row.is-open .accordion__head { color: var(--accent); }
+
+/* ---------- Table rows highlight on hover ---------- */
+.sg__table tbody tr { transition: background 0.25s, transform 0.25s var(--ease-out); }
+.sg__table tbody tr:hover { transform: translateX(4px); }
+
+/* ---------- Footer social icons stagger their lift ---------- */
+.ftr__soc { transition: all 0.4s var(--ease-spring); }
+
+/* ---------- Skeleton pulse for loading states ---------- */
+@keyframes pulse-soft {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.55; }
+}
+.is-loading { animation: pulse-soft 1.6s var(--ease-out) infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  .route-shell,
+  .pgrid > *,
+  .jgrid > *,
+  .cats__grid > *,
+  .vals__grid > *,
+  .cartd__item,
+  .tag {
+    animation: none !important;
+  }
+  .pcard__media::after { display: none; }
+}
